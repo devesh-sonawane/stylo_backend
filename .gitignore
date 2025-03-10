@@ -1,0 +1,8 @@
+.env
+chroma_*
+chroma
+.DS_Store
+bin
+include
+share
+lib
