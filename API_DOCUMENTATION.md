@@ -1,6 +1,6 @@
-# H&M Fashion Assistant API Documentation
+# Gaming Recommendation Assistant API Documentation
 
-This document provides information on how to use the H&M Fashion Assistant API for integration with mobile apps and other clients.
+This document provides information on how to use the Gaming Recommendation Assistant API for integration with mobile apps and other clients.
 
 ## Base URL
 
@@ -16,61 +16,70 @@ Currently, the API does not implement authentication. For production use, you sh
 
 ## Endpoints
 
-### 1. Chat with Fashion Assistant
+### 1. Chat with Gaming Assistant
 
 **Endpoint:** `/api/chat`
 
 **Method:** POST
 
-**Description:** Send a query to the fashion assistant and get a response.
+**Description:** Send a query to the gaming assistant and get a response.
 
 **Request Body:**
 
 ```json
 {
-  "query": "I need a casual outfit for summer",
+  "query": "I need a casual game for relaxing",
   "session_id": "optional-session-id-for-continuing-conversation"
 }
 ```
 
-- `query` (required): The user's fashion query or message
+- `query` (required): The user's gaming query or message
 - `session_id` (optional): A unique identifier for the conversation session. If not provided, a new session will be created.
 
 **Response:**
 
 ```json
 {
-  "response": "For a casual summer outfit, I recommend...",
+  "response": "For a casual relaxing game, I recommend...",
   "products": [
     {
-      "name": "Loose Fit T-shirt",
-      "price": "$9.99",
-      "image_url": "https://image.hm.com/assets/hm/7b/17/7b17428dc1da8df6b8b054f8729b58bd8d06e60a.jpg",
-      "product_link": "https://www2.hm.com/en_us/productpage.0608945124.html",
-      "category": "Men",
-      "colors": "Yellow, Black, White, Dark beige, Light beige, Pink, Light sage green, Dark gray, Navy blue"
+      "name": "Stardew Valley",
+      "price": "$14.99",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg",
+      "product_link": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+      "genres": "Simulation, RPG, Indie",
+      "developers": "ConcernedApe",
+      "publishers": "ConcernedApe",
+      "release_date": "Feb 26, 2016",
+      "metacritic_score": "89"
     },
     {
-      "name": "Loose-Fit Seersucker Resort Shirt",
-      "price": "$29.99",
-      "image_url": "https://image.hm.com/assets/hm/d2/d2/d2d2cb5c3cf01c2c650aefe1d45546d0b61dcad6.jpg",
-      "product_link": "https://www2.hm.com/en_us/productpage.1265306004.html",
-      "category": "Men",
-      "colors": "Light blue/striped, Beige/checked, Dark gray"
+      "name": "Animal Crossing: New Horizons",
+      "price": "$59.99",
+      "image_url": "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_700/v1/ncom/en_US/games/switch/a/animal-crossing-new-horizons-switch/hero",
+      "product_link": "https://www.nintendo.com/store/products/animal-crossing-new-horizons-switch/",
+      "genres": "Simulation, Life Sim",
+      "developers": "Nintendo",
+      "publishers": "Nintendo",
+      "release_date": "Mar 20, 2020",
+      "metacritic_score": "90"
     }
   ],
   "session_id": "session-id-for-continuing-conversation"
 }
 ```
 
-- `response`: The fashion assistant's text response
-- `products`: An array of product details including:
-  - `name`: The product name
-  - `price`: The product price
-  - `image_url`: URL to the product image
-  - `product_link`: URL to the product page
-  - `category`: Product category (e.g., Men, Women, Kids)
-  - `colors`: Available colors for the product
+- `response`: The gaming assistant's text response
+- `products`: An array of game details including:
+  - `name`: The game name
+  - `price`: The game price
+  - `image_url`: URL to the game image
+  - `product_link`: URL to the game page
+  - `genres`: Game genres
+  - `developers`: Game developers
+  - `publishers`: Game publishers
+  - `release_date`: Game release date
+  - `metacritic_score`: Metacritic score for the game
 - `session_id`: The session ID to use for continuing the conversation
 
 ### 2. Reset Conversation Session
